@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import loginimg from '../assets/image/loginimge.jpg'
 import { BiShowAlt, BiSolidLowVision } from "react-icons/bi";
+import Master from '../component/Layout/Master';
+import { useNavigate  } from 'react-router-dom';
 
 
 const LoginPage = () => {
@@ -10,6 +12,14 @@ const LoginPage = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+
+    const navigate = useNavigate();
+
+    const handleLogin = (e) => {
+        e.preventDefault();
+        navigate('/user')
+        console.log('test');
+    }
 
     return (
         <section className="bg-gray-50 min-h-screen flex items-center justify-center">
@@ -30,7 +40,7 @@ const LoginPage = () => {
                                 )}
                             </button>
                         </div>
-                        <button className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">Login</button>
+                        <button type='button' onClick={handleLogin} className="bg-[#002D74] rounded-xl text-white py-2 hover:scale-105 duration-300">Login</button>
                     </form>
                 </div>
                 <div className="md:block hidden w-1/2">
